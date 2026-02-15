@@ -30,6 +30,10 @@ To run the application locally:
 
 ```bash
 docker compose -f docker-compose-v2.yml up -d
+```
+### The application will be available at:
+ - UI: http://localhost:8080
+ - API: http://localhost:5000
 
 ### Default credentials:
  - Admin: admin@automation.com
