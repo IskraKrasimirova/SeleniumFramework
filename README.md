@@ -1,7 +1,39 @@
-﻿# SeleniumFramework
-# Selenium Test Automation Framework with C#
+﻿# Selenium BDD Test Automation Framework (Endava SoA Training)
 
-# Selenium BDD Framework (Endava SoA Training)
+This repository contains a **UI + API automation framework** built in C# using Selenium WebDriver and ReqNroll. The framework tests the **SoA SUT Application** — a microservices-based web platform for user management.
+
+--- 
+
+# 🏗️ System Under Test (SUT): SoA Application
+
+This automation framework tests the **SoA Application** — a microservices-based user management system used in the Endava SoA Training.
+
+The application consists of three Dockerized services:
+
+- **PHP Frontend (Apache)** – http://localhost:8080  
+- **Python REST API (Flask)** – http://localhost:5000  
+- **MySQL Database** – localhost:3306  
+
+It provides functionality for:
+- User authentication  
+- User CRUD operations  
+- Country & city lookup  
+- Skills management  
+
+### 🔗 Full SUT Documentation  
+The complete documentation for the SoA Application (architecture, API endpoints, Docker setup, database details, cleanup instructions, etc.) is available in the main application repository:
+
+👉 **https://github.com/Endava-Sofia/SoA-SUT**  
+
+### 🚀 Start the SUT Locally  
+To run the application locally:
+
+```bash
+docker compose -f docker-compose-v2.yml up -d
+
+### Default credentials:
+ - Admin: admin@automation.com
+ - Password: pass123
 
 ## Overview
 This repository hosts a **Selenium-based BDD test automation framework** that is being **iteratively developed during the Endava SoA Training**.  
