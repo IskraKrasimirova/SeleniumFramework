@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using Bogus.Extensions;
 
-namespace Common.Models.Factories
+namespace Selenium.UiTests.Models.Factories
 {
     public class UsersFactory : IUserFactory
     {
@@ -9,9 +9,9 @@ namespace Common.Models.Factories
         private static readonly string[] Titles = ["Mr.", "Mrs."];
         private static readonly List<string> ValidCities = ["Burgas", "Elin Pelin", "Kardjali", "Pleven", "Plovdiv", "Pravets", "Sofia", "Sopot", "Varna"];
 
-        public T CreateDefault<T>() where T : UserModel, new()
+        public UserModel CreateDefault()
         {
-            var user = new T
+            var user = new UserModel
             {
                 Title = Faker.PickRandom(Titles),
                 FirstName = Faker.Name.FirstName().Replace("'", "").ClampLength(2, 15),
@@ -27,14 +27,14 @@ namespace Common.Models.Factories
 
         public UserModel Create(string email, string password)
         {
-            UserModel user = CreateDefault<UserModel>();
+            var user = CreateDefault();
             user.Email = email;
             user.Password = password;
 
             return user;
         }
 
-        public T CreateCustom<T>(
+        public UserModel CreateCustom(
             string? title = null,
             string? firstName = null,
             string? surname = null,
@@ -42,9 +42,8 @@ namespace Common.Models.Factories
             string? password = null,
             string? country = null,
             string? city = null)
-            where T : UserModel, new()
         {
-            var user = CreateDefault<T>();
+            var user = CreateDefault();
 
             if (title != null) user.Title = title;
             if (firstName != null) user.FirstName = firstName;

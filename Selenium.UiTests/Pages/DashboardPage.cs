@@ -48,18 +48,14 @@ namespace Selenium.UiTests.Pages
             LogoutLink.Click();
         }
 
-        public UsersPage GoToUsersPage()
+        public void GoToUsersPage()
         {
             UsersLink.Click();
-
-            return new UsersPage(_driver);
         }
 
-        public SearchPage GoToSearchPage()
+        public void GoToSearchPage()
         {
             SearchLink.Click();
-
-            return new SearchPage(_driver);
         }
 
         // Validations

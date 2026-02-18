@@ -1,7 +1,7 @@
-﻿using Common.Models;
-using Common.Utilities;
+﻿using Common.Utilities;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using Selenium.UiTests.Models;
 using Selenium.UiTests.Utilities.Extensions;
 
 namespace Selenium.UiTests.Pages

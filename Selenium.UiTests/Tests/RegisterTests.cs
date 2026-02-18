@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Selenium.UiTests.Models.UserModels;
 using Selenium.UiTests.Pages;
-using Selenium.UiTests.Tests;
 using Selenium.UiTests.Utilities;
 
-namespace Selenium.Tests
+namespace Selenium.UiTests.Tests
 {
     [TestFixture(Category = "Register")]
     public class RegisterTests:UiTestBase

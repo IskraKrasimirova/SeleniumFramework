@@ -1,6 +1,6 @@
-﻿using Common.Models;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Selenium.UiTests.Models;
 using Selenium.UiTests.Models.UserModels;
 using Selenium.UiTests.Utilities.Extensions;
 

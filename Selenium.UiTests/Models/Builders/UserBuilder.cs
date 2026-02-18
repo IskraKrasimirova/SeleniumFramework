@@ -1,4 +1,4 @@
-﻿namespace Common.Models.Builders
+﻿namespace Selenium.UiTests.Models.Builders
 {
     public class UserBuilder
     {

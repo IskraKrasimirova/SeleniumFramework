@@ -1,6 +1,4 @@
-﻿using Common.Models.Builders;
-using Common.Models.Factories;
-using Common.Models.SettingsModels;
+﻿using Common.Models.SettingsModels;
 using Common.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 using MySqlConnector;
@@ -11,6 +9,8 @@ using RestSharp;
 using RestSharp.ApiTests.Apis;
 using RestSharp.ApiTests.Models.Factories;
 using Selenium.UiTests.DatabaseOperations.Operations;
+using Selenium.UiTests.Models.Builders;
+using Selenium.UiTests.Models.Factories;
 using Selenium.UiTests.Pages;
 using System.Data;
 using WebDriverManager;

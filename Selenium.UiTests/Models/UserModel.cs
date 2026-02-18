@@ -1,4 +1,4 @@
-﻿namespace Common.Models
+﻿namespace Selenium.UiTests.Models
 {
     public class UserModel
     {

@@ -1,6 +1,6 @@
-﻿using Common.Models;
-using Common.Models.SettingsModels;
+﻿using Common.Models.SettingsModels;
 using Reqnroll;
+using Selenium.UiTests.Models;
 using Selenium.UiTests.Models.UserModels;
 using Selenium.UiTests.Pages;
 using Selenium.UiTests.Utilities.Constants;

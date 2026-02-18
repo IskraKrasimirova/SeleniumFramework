@@ -1,8 +1,8 @@
-﻿using Common.Models;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using Reqnroll;
 using Selenium.UiTests.DatabaseOperations.Entities;
 using Selenium.UiTests.DatabaseOperations.Operations;
+using Selenium.UiTests.Models;
 using Selenium.UiTests.Models.UserModels;
 using Selenium.UiTests.Utilities.Constants;
 

@@ -1,5 +1,5 @@
-﻿using Common.Models;
-using Reqnroll;
+﻿using Reqnroll;
+using Selenium.UiTests.Models;
 using Selenium.UiTests.Models.UserModels;
 using Selenium.UiTests.Pages;
 using Selenium.UiTests.Utilities;

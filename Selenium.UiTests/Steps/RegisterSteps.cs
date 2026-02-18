@@ -1,12 +1,11 @@
-﻿using Common.Models;
-using Common.Models.Factories;
-using Common.Utilities;
+﻿using Common.Utilities;
 using OpenQA.Selenium;
 using Reqnroll;
 using RestSharp.ApiTests.Apis;
 using RestSharp.ApiTests.Models.Dtos;
 using RestSharp.ApiTests.Models.Factories;
 using Selenium.UiTests.DatabaseOperations.Operations;
+using Selenium.UiTests.Models.Factories;
 using Selenium.UiTests.Pages;
 using Selenium.UiTests.Utilities;
 using Selenium.UiTests.Utilities.Constants;
@@ -61,7 +60,7 @@ namespace Selenium.UiTests.Steps
             _loginPage.GoToRegisterPage();
             _registerPage.VerifyIsAtRegisterPage();
 
-            var newUser = _userFactory.CreateDefault<UserModel>();
+            var newUser = _userFactory.CreateDefault();
             _registerPage.RegisterNewUser(newUser);
             _scenarioContext.Add(ContextConstants.NewRegisteredUser, newUser);
 
@@ -83,7 +82,7 @@ namespace Selenium.UiTests.Steps
 
             var user = userResponse.Data;
 
-            var registeredUser = _userFactory.CreateCustom<UserModel>(
+            var registeredUser = _userFactory.CreateCustom(
                 title: user.Title,
                 firstName: user.FirstName,
                 surname: user.SirName,
