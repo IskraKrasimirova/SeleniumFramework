@@ -120,6 +120,9 @@ namespace Selenium.UiTests.Pages
             Retry.Until(() =>
             {
                 text = PasswordInput.GetAttribute("value");
+
+                if (!string.IsNullOrEmpty(text))
+                    throw new RetryException("Password input is not empty yet.");
             },
             exceptionsToCatch: [new StaleElementReferenceException()], waitInMilliseconds: 1000);
 
