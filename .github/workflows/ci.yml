@@ -1,0 +1,63 @@
+name: Run Automation Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout test framework
+        uses: actions/checkout@v3
+
+      - name: Clone SoA-SUT
+        run: git clone https://github.com/Endava-Sofia/SoA-SUT.git
+
+      - name: Start SoA application
+        run: |
+          cd SoA-SUT
+          docker compose -f docker-compose-v2.yml up -d
+
+      - name: Wait for API to be ready
+        run: |
+          for i in {1..30}; do
+            curl -s http://localhost:5000/users && break
+            echo "Waiting... attempt $i"
+            sleep 5
+          done
+
+      - name: Wait for UI to be ready
+        run: |
+          for i in {1..30}; do
+            curl -s http://localhost:8080 && break
+            echo "Waiting... attempt $i"
+            sleep 5
+          done
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Run tests
+        run: dotnet test --logger "trx;LogFileName=results.trx"
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: "**/*.trx"
+
+      - name: Stop application
+        if: always()
+        run: |
+          cd SoA-SUT
+          docker compose -f docker-compose-v2.yml down

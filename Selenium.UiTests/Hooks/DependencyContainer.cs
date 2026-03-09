@@ -35,8 +35,26 @@ namespace Selenium.UiTests.Hooks
             {
                 new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
 
-                var driver = new ChromeDriver();
-                driver.Manage().Window.Maximize();
+                var options = new ChromeOptions();
+
+                bool isCi = Environment.GetEnvironmentVariable("CI") == "true";
+
+                if (isCi)
+                {
+                    options.AddArgument("--headless=new");
+                    options.AddArgument("--no-sandbox");
+                    options.AddArgument("--disable-dev-shm-usage");
+                    options.AddArgument("--disable-gpu");
+                    options.AddArgument("--window-size=1920,1080");
+                }
+
+                var driver = new ChromeDriver(options);
+
+                if (!isCi)
+                {
+                    driver.Manage().Window.Maximize();
+                }
+
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
 
                 return driver;
