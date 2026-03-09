@@ -151,9 +151,6 @@ namespace Selenium.UiTests.Hooks
 
             // Short syntax for registering page classes
             //services.AddScoped<LoginPage>();
-            //services.AddScoped<DashboardPage>();
-            //services.AddScoped<RegisterPage>();
-            //services.AddScoped<UsersPage>();
         }
 
         private static void RegisterApiIntegration(IServiceCollection services)

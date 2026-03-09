@@ -1,10 +1,10 @@
-﻿# Selenium BDD Test Automation Framework (Endava SoA Training)
+﻿# SoA Selenium / RestSharp Framework (Endava SoA Training)
 
 
 [![CI Status](https://github.com/IskraKrasimirova/SeleniumFramework/actions/workflows/ci.yml/badge.svg)](https://github.com/IskraKrasimirova/SeleniumFramework/actions/workflows/ci.yml)
 
 
-This repository contains a **UI + API automation framework** built in C# using Selenium WebDriver and ReqNroll. The framework tests the **SoA SUT Application** — a microservices-based web platform for user management.
+This repository contains a **UI + API automation framework** built in C# using Selenium WebDriver, ReqNroll, RestSharp. The framework tests the **SoA SUT Application** — a microservices-based web platform for user management.
 
 --- 
 
@@ -44,10 +44,17 @@ docker compose -f docker-compose-v2.yml up -d
  - Password: pass123
 
 ## Overview
-This repository hosts a **Selenium-based BDD test automation framework** that is being **iteratively developed during the Endava SoA Training**.  
-The primary goal is to demonstrate **production-grade automation architecture**, tooling, and engineering practices using modern .NET ecosystem components.
+This repository hosts a **Selenium-based BDD test automation framework** that is being iteratively developed during the **Endava SoA Training**.
 
-The framework is intentionally designed as an **educational yet enterprise-ready reference implementation**.
+The primary goal is to demonstrate **production-grade automation architecture**, tooling, and engineering practices using modern **.NET ecosystem** components.
+
+The framework is intentionally designed as an educational yet **enterprise-ready reference implementation**.
+
+In addition to UI automation, the repository has been expanded to include:
+- A dedicated **API automation framework** using RestSharp
+- A shared **Common library** that contains reusable cross-usable components
+
+This allows the solution to scale beyond UI-only testing into a **multi-layer automation architecture**.
 
 ---
 
@@ -58,6 +65,7 @@ The framework is intentionally designed as an **educational yet enterprise-ready
 - Showcase **Dependency Injection (DI)** and configuration best practices
 - Integrate UI automation with **API-level validation** where applicable
 - Provide a foundation suitable for **CI/CD execution**
+- Enable shared utilities and reusable test infrastructure across multiple test layers
 
 ---
 
@@ -70,7 +78,7 @@ The framework is intentionally designed as an **educational yet enterprise-ready
 | Dependency Injection | .NET DI / IoC containers |
 | Configuration | appsettings / environment-based |
 | Assertions | Build-in in nunit |
-| Patterns | Page Object, Factory, Builder |
+| Patterns | Page Object, Factory, Builder, Singleton |
 
 ---
 
@@ -83,10 +91,61 @@ The framework is intentionally designed as an **educational yet enterprise-ready
 - **Strong DI usage**
   - No static state
   - Fully injectable WebDriver, contexts, and services
+- **Multi-layer test coverage**
+  - UI tests validate user journeys
+  - API tests validate backend/service behavior
+  - Common components ensure consistency across both layers
 - **Extensible by design**
   - Easy to add new browsers, environments, and test layers
 - **Training-oriented evolution**
   - Codebase grows alongside the SoA training modules
+  - Designed as a learning accelerator for scalable automation frameworks
+
+---
+
+## Solution Architecture
+
+The repository is structured into **three core projects**, each responsible for a specific automation layer.
+
+### 1. UI Automation Project (Selenium BDD)
+
+This project contains the full **Selenium + Reqnroll** implementation, including:
+
+- Gherkin feature files
+- Step definitions
+- Page Object Model abstractions
+- WebDriver setup and hooks
+- UI-specific test execution
+
+**Purpose:** ✅ Validate end-to-end user flows through the browser.
+
+### 2. API Automation Project (RestSharp)
+
+A second project has been added for **API-level test coverage** using **RestSharp**.
+
+It includes:
+
+- API client abstractions
+- Request builders
+- Response models
+- Service-level validations
+- Integration-ready API test scenarios
+
+**Purpose:** ✅ Validate backend endpoints independently or alongside UI flows.
+
+### 3. Common Project (Shared Test Infrastructure)
+
+A third project called **Common** has been introduced to host all **reusable framework components** shared across UI and API layers.
+
+It contains:
+
+- Configuration readers and environment loaders
+- Utilities and helper services
+- Common validation logic
+- Cross-cutting framework abstractions
+
+**Purpose:** ✅ Prevent duplication and ensure consistent architecture across frameworks.  
+This project acts as the **foundation layer** of the entire automation solution.
 
 ---
 
