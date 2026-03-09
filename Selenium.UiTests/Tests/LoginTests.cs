@@ -68,7 +68,7 @@ namespace Selenium.UiTests.Tests
             {
                 if (!_loginPage.IsPasswordInputEmpty())
                     throw new RetryException("Password input is not empty yet.");
-            }, [new StaleElementReferenceException()]);
+            }, [new StaleElementReferenceException(), new UnknownErrorException("unknown error")]);
 
             _loginPage.VerifyPasswordInputIsEmpty();
             _loginPage.VerifyErrorMessageIsDisplayed("Invalid email or password"); 
@@ -94,7 +94,7 @@ namespace Selenium.UiTests.Tests
             {
                 if (!_loginPage.IsPasswordInputEmpty())
                     throw new RetryException("Password input is not empty yet.");
-            }, [new StaleElementReferenceException()]);
+            }, [new StaleElementReferenceException(), new UnknownErrorException("unknown error")]);
 
             _loginPage.VerifyPasswordInputIsEmpty();
             _loginPage.VerifyErrorMessageIsDisplayed("Invalid email or password");

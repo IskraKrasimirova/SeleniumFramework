@@ -47,7 +47,7 @@ namespace Selenium.UiTests.Pages
             {
                 return string.IsNullOrWhiteSpace(PasswordInput.GetAttribute("value"));
             }
-            catch (StaleElementReferenceException)
+            catch (Exception e) when (e is StaleElementReferenceException || e is UnknownErrorException)
             {
                 return string.IsNullOrWhiteSpace(PasswordInput.GetAttribute("value"));
             }
